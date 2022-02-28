@@ -3,9 +3,13 @@ import { borderLeftColor } from 'react-native/Libraries/Components/View/ReactNat
 import { useEffect, useState } from "react";
 
 export default function App() {
+  const [showLoading, setShowLoading] = useState(false);
+
   const handlePress = () => {
+    setShowLoading(true)
     alert("You clicked and logged in!")
   }
+
 
   return (
     <ScrollView style={styles.container}>
@@ -28,8 +32,11 @@ export default function App() {
           <Text style={styles.btnText}>
             Login
           </Text>
-          <ActivityIndicator />
         </TouchableOpacity>
+        {showLoading === true ?
+          <ActivityIndicator />
+          : null
+        }
         <Text style={styles.thirdText}>
           Fratrem Rupilio vero superiorem superiorem enim fratrem Philo numquam Saepe excellentiae Q parem amicitia tamquam ille anteposuit suosque nostro grege qualis grege inferiori anteibat Maximum qualis inferiori volebat posse superiorem.
         </Text>
