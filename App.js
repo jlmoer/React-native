@@ -1,20 +1,79 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { borderLeftColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
+import { useEffect, useState } from "react";
 
 export default function App() {
+  const handlePress = () => {
+    alert("You clicked and logged in!")
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ScrollView style={styles.container}>
+      <View style={styles.anotherone}>
+        <Image
+          style={styles.img}
+          source={require("./assets/konexio.png")}
+        />
+        <Text style={styles.firstText}>
+          Fratrem Rupilio vero superiorem superiorem enim fratrem Philo numquam Saepe excellentiae Q parem amicitia tamquam ille anteposuit suosque nostro grege qualis grege inferiori anteibat Maximum qualis inferiori volebat posse superiorem.
+        </Text>
+        <Image
+          style={styles.img}
+          source={{ uri: "https://www.konexio.eu/uploads/1/2/0/2/120245745/konexio-logo_1.png" }}
+        />
+        <Text style={styles.secondText}>
+          Fratrem Rupilio vero superiorem superiorem enim fratrem Philo numquam Saepe excellentiae Q parem amicitia tamquam ille anteposuit suosque nostro grege qualis grege inferiori anteibat Maximum qualis inferiori volebat posse superiorem.
+        </Text>
+        <TouchableOpacity onPress={handlePress} style={styles.btn}>
+          <Text style={styles.btnText}>
+            Login
+          </Text>
+          <ActivityIndicator />
+        </TouchableOpacity>
+        <Text style={styles.thirdText}>
+          Fratrem Rupilio vero superiorem superiorem enim fratrem Philo numquam Saepe excellentiae Q parem amicitia tamquam ille anteposuit suosque nostro grege qualis grege inferiori anteibat Maximum qualis inferiori volebat posse superiorem.
+        </Text>
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "blue",
+    padding: 10,
+    marginTop: 5,
   },
-});
+  anotherone: {
+    backgroundColor: "white",
+  },
+  firstText: {
+    marginTop: 80,
+    marginBottom: 80,
+    fontSize: 30,
+  },
+  secondText: {
+    marginTop: 80,
+    marginBottom: 80,
+    textAlign: "center",
+  },
+  thirdText: {
+    marginTop: 80,
+    marginBottom: 80,
+    fontWeight: 'bold',
+  },
+  img: {
+    height: 40,
+    width: 124,
+    alignSelf: 'center',
+  },
+  btn: {
+    marginTop: 10,
+    alignSelf: 'center',
+  },
+  btnText: {
+    color: 'black',
+    fontSize: 30,
+    fontWeight: 'bold',
+  }
+})
